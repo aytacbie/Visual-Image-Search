@@ -10,3 +10,7 @@ services:
       # sync: false = Render asks for the value when the Blueprint is created; it is not stored in git.
       - key: VS_API_KEYS
         sync: false
+      # The free instance has a fraction of one CPU; one inference thread avoids threads
+      # fighting over it (ONNX Runtime otherwise starts one per visible core).
+      - key: VS_THREADS
+        value: "1"
