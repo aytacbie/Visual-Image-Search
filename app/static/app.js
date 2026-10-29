@@ -1,10 +1,9 @@
 "use strict";
 
 const $ = (id) => document.getElementById(id);
-const KEY_STORAGE = "visual-search-api-key";
 
 const els = {
-  apiKey: $("apiKey"), toggleKey: $("toggleKey"), dropzone: $("dropzone"), fileInput: $("fileInput"),
+  dropzone: $("dropzone"), fileInput: $("fileInput"),
   preview: $("preview"), dropHint: $("dropHint"), topK: $("topK"), searchBtn: $("searchBtn"),
   error: $("error"), results: $("results"), meta: $("meta"), status: $("status"),
   curlSnippet: $("curlSnippet"), copyCurl: $("copyCurl"),
@@ -12,9 +11,6 @@ const els = {
 
 let currentFile = null;
 let busy = false;
-
-function storageGet(key) { try { return localStorage.getItem(key) || ""; } catch { return ""; } }
-function storageSet(key, value) { try { localStorage.setItem(key, value); } catch { /* private mode */ } }
 
 function el(tag, props = {}, children = []) {
   const node = Object.assign(document.createElement(tag), props);
@@ -99,12 +95,6 @@ function renderResults(body) {
 
 async function search() {
   if (!currentFile || busy) return;
-  const key = els.apiKey.value.trim();
-  if (!key) {
-    showError("Enter your API key first.");
-    els.apiKey.focus();
-    return;
-  }
   busy = true;
   updateButton();
   showError("");
@@ -114,11 +104,8 @@ async function search() {
   const form = new FormData();
   form.append("file", currentFile);
   try {
-    const res = await fetch(`/api/v1/search?top_k=${els.topK.value}`, {
-      method: "POST",
-      headers: { "X-API-Key": key },
-      body: form,
-    });
+    // Same-origin, key-less route for this page; the public API needs X-API-Key.
+    const res = await fetch(`/web/search?top_k=${els.topK.value}`, { method: "POST", body: form });
     const body = await res.json().catch(() => ({}));
     if (!res.ok) {
       const detail = typeof body.detail === "string" ? body.detail : JSON.stringify(body.detail || res.statusText);
@@ -137,15 +124,6 @@ async function search() {
 }
 
 // --- wiring ---------------------------------------------------------------
-
-els.apiKey.value = storageGet(KEY_STORAGE);
-els.apiKey.addEventListener("input", () => storageSet(KEY_STORAGE, els.apiKey.value.trim()));
-els.apiKey.addEventListener("keydown", (e) => { if (e.key === "Enter") search(); });
-els.toggleKey.addEventListener("click", () => {
-  const hidden = els.apiKey.type === "password";
-  els.apiKey.type = hidden ? "text" : "password";
-  els.toggleKey.textContent = hidden ? "Hide" : "Show";
-});
 
 els.dropzone.addEventListener("click", () => els.fileInput.click());
 els.dropzone.addEventListener("keydown", (e) => {

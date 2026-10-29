@@ -89,7 +89,6 @@ body {
 .panel { align-self: start; position: sticky; top: 16px; display: flex; flex-direction: column; gap: 14px; }
 
 .field-label { font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: -8px; }
-.key-row { display: flex; gap: 8px; }
 
 input, select, button { font: inherit; color: inherit; }
 input[type="password"], input[type="text"], select {

@@ -182,6 +182,26 @@ def test_web_key_is_search_only(env):
     assert resp.status_code == 403
 
 
+def test_search_scope_key_is_search_only(env):
+    settings, client, _, _ = env
+    key = KeyStore(settings.keys_path).create("proxy", "search")
+    data = (settings.images_dir / "red_circle.png").read_bytes()
+    assert search(client, key, data).status_code == 200
+    assert client.post("/api/v1/images", files={"file": ("g.png", data)}, headers={"X-API-Key": key}).status_code == 403
+
+
+def test_builtin_page_searches_without_key_same_origin_only(env):
+    settings, client, _, _ = env
+    data = (settings.images_dir / "red_circle.png").read_bytes()
+    files = {"file": ("q.png", data)}
+    resp = client.post("/web/search?top_k=2", files=files, headers={"Origin": "http://testserver"})
+    assert resp.status_code == 200 and resp.json()["results"][0]["filename"] == "red_circle.png"
+    assert client.post("/web/search", files=files, headers={"Referer": "http://testserver/"}).status_code == 200
+    assert client.post("/web/search", files=files).status_code == 403
+    assert client.post("/web/search", files=files, headers={"Origin": "https://evil.example.com"}).status_code == 403
+    assert "/web/search" not in client.get("/openapi.json").json()["paths"]
+
+
 def test_keys_from_environment(env):
     settings, client, _, _ = env
     data = (settings.images_dir / "red_circle.png").read_bytes()

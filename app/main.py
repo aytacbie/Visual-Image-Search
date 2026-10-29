@@ -15,6 +15,7 @@ import uuid
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Literal
+from urllib.parse import urlsplit
 
 from fastapi import BackgroundTasks, Depends, FastAPI, HTTPException, Query, Request, Response, Security
 from fastapi.concurrency import run_in_threadpool
@@ -112,6 +113,20 @@ def require(permission: str):
         return principal
 
     return dependency
+
+
+def website_visitor(request: Request) -> Principal:
+    """Dependency for /web/search: the built-in page, no key. Only from a page on this
+    same host, and rate limited per visitor IP like a web key."""
+    if not request.app.state.settings.web_search:
+        raise HTTPException(404, "Not found.")
+    origin = request.headers.get("origin") or request.headers.get("referer") or ""
+    if urlsplit(origin).netloc != request.url.netloc:
+        raise HTTPException(403, "Use /api/v1/search with an X-API-Key header.")
+    retry_after = request.app.state.web_limiter.hit(f"website|{client_ip(request)}")
+    if retry_after is not None:
+        raise HTTPException(429, "Rate limit exceeded, slow down.", headers={"Retry-After": str(math.ceil(retry_after))})
+    return Principal("website", "web")
 
 
 def create_app(settings: Settings | None = None, embedder: BaseEmbedder | None = None) -> FastAPI:
@@ -263,25 +278,42 @@ def create_app(settings: Settings | None = None, embedder: BaseEmbedder | None =
         low, high = store.price_range()
         return {"categories": store.categories(), "price_range": {"min": low, "max": high}}
 
+    class SearchQuery:
+        """Query-string options shared by /api/v1/search and /web/search."""
+
+        def __init__(
+            self,
+            top_k: int | None = Query(None, ge=1, le=settings.max_top_k, description="Number of results"),
+            category: str | None = Query(None, description="Exact category, case-insensitive"),
+            subcategory: str | None = Query(None),
+            brand: str | None = Query(None),
+            min_price: float | None = Query(None, ge=0),
+            max_price: float | None = Query(None, ge=0),
+        ):
+            self.top_k = top_k
+            self.filters = {"category": category, "subcategory": subcategory, "brand": brand,
+                            "min_price": min_price, "max_price": max_price}
+
     @app.post(
         "/api/v1/search", response_model=SearchResponse, tags=["search"],
         summary="Find products that look like the uploaded image",
         openapi_extra=_image_body_openapi(with_options=True), responses=_ERROR_RESPONSES,
     )
     async def search(
-        request: Request,
-        top_k: int | None = Query(None, ge=1, le=settings.max_top_k, description="Number of results"),
-        category: str | None = Query(None, description="Exact category, case-insensitive"),
-        subcategory: str | None = Query(None),
-        brand: str | None = Query(None),
-        min_price: float | None = Query(None, ge=0),
-        max_price: float | None = Query(None, ge=0),
-        principal: Principal = Depends(require("search")),
+        request: Request, q=Depends(SearchQuery), principal: Principal = Depends(require("search")),
     ):
+        return await run_search(request, q, principal)
+
+    @app.post("/web/search", response_model=SearchResponse, include_in_schema=False)
+    async def web_search(
+        request: Request, q=Depends(SearchQuery), principal: Principal = Depends(website_visitor),
+    ):
+        return await run_search(request, q, principal)
+
+    async def run_search(request: Request, q: SearchQuery, principal: Principal) -> SearchResponse:
         started = time.perf_counter()
         data, body = await read_image_payload(request)
-        query = {"category": category, "subcategory": subcategory, "brand": brand,
-                 "min_price": min_price, "max_price": max_price}
+        query, top_k = q.filters, q.top_k
         flt = SearchFilter(**{f: query[f] if query[f] is not None else body.get(f) for f in FILTER_FIELDS})
         k = top_k or body.get("top_k") or settings.default_top_k
         if not 1 <= k <= settings.max_top_k:

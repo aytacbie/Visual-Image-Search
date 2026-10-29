@@ -6,9 +6,12 @@ Only SHA-256 hashes of keys are stored. Two sources, merged:
 - the VS_API_KEYS setting ("label:scope:sha256;..."), for hosts like Hugging Face
   Spaces where keys are configured as secrets.
 
-Scopes: "full" may search and add images (the mentor's curl key); "web" may only
-search and has a stricter per-visitor rate limit, because it is embedded in a
-public frontend and therefore visible to anyone who opens it.
+Scopes:
+- "full": search and add images (the mentor's curl key);
+- "search": search only, per-key rate limit (a server-side proxy such as the Lovable
+  edge function, where every visitor arrives from the same IP);
+- "web": search only, stricter limit per key *and* client IP, for a key that ends up
+  in a public frontend and is therefore visible to anyone who opens it.
 """
 from __future__ import annotations
 
@@ -24,8 +27,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 KEY_PREFIX = "vs_"
-SCOPES = ("full", "web")
-PERMISSIONS = {"full": {"search", "write"}, "web": {"search"}}
+SCOPES = ("full", "search", "web")
+PERMISSIONS = {"full": {"search", "write"}, "search": {"search"}, "web": {"search"}}
 
 
 @dataclass(frozen=True)

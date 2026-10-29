@@ -26,7 +26,15 @@ A query is embedded the same way and FAISS returns the nearest ones.
 already indexed (resumable after a crash) and checkpoints the index every 5 000 images.
 Past 50 000 vectors the index is rebuilt as HNSW. Filters narrow the candidate set
 inside FAISS, so a filtered query still returns the true top-k of the matching products.
-`python scripts/benchmark.py scale --n 500000` measures latency and recall at that size.
+`python scripts/benchmark.py scale --n 500000` (clustered synthetic vectors, laptop CPU):
+
+| 500 000 × 512-d | query p50 | query p95 | recall@10 vs exact | original item #1 |
+|---|---|---|---|---|
+| exact (Flat) | 76 ms | 122 ms | 1.000 | 100% |
+| HNSW | 0.6 ms | 1.1 ms | 0.994 | 99.5% |
+
+HNSW build takes ~7 minutes once at 500k; embedding 500k images on CPU is the real cost
+(~10 images/s with the int8 model, so hours, which is why ingest is resumable).
 
 **Accuracy on the 194-product catalogue** (`python scripts/benchmark.py accuracy`, leave-one-out):
 nearest other product is in the same subcategory 84% of the time, same category 92%.
@@ -91,16 +99,22 @@ Errors are `{"detail": "..."}`: 400 bad image/input · 401 missing or invalid ke
 | Scope | Can | Rate limit | Use |
 |---|---|---|---|
 | `full` | search, add images | 120/min per key | mentor's curl, admin |
-| `web` | search only | 20/min per key **and** visitor IP | embedded in the Lovable frontend |
+| `search` | search only | 120/min per key | server-side proxy (Lovable edge function) |
+| `web` | search only | 20/min per key **and** visitor IP | a key that has to live in browser code |
 
-A `web` key is visible to anyone who opens the frontend, so it is deliberately limited:
-it cannot change the collection and one visitor cannot use up the quota for others.
+The Lovable frontend never sees a key: it calls a Lovable Cloud edge function, which holds
+a `search` key as the secret `VISUAL_SEARCH_API_KEY` and forwards the upload to
+`POST /api/v1/search`.
+
+The built-in page at `/` also needs no key: it posts to `/web/search`, which only accepts
+requests whose `Origin`/`Referer` is the same host and is limited to 20/min per visitor IP
+(`VS_WEB_SEARCH=0` turns it off). `/api/v1/*` always requires a key.
 
 ```powershell
-python scripts\create_api_key.py mentor               # full
-python scripts\create_api_key.py lovable --scope web  # web
+python scripts\create_api_key.py mentor                        # full
+python scripts\create_api_key.py lovable-proxy --scope search  # for the edge function
 python scripts\create_api_key.py --list
-python scripts\create_api_key.py --revoke lovable
+python scripts\create_api_key.py --revoke lovable-proxy
 ```
 
 Locally keys live in `data/api_keys.json` (hashes only). When deployed, set the

@@ -29,8 +29,8 @@ class Settings:
     max_top_k: int = 50
     # Below this many vectors exact search is fast enough; above it we switch to HNSW.
     hnsw_threshold: int = 50_000
-    rate_limit_per_minute: int = 120  # full keys, per key
-    web_rate_limit_per_minute: int = 20  # web keys, per key + client IP
+    rate_limit_per_minute: int = 120  # full/search keys, per key
+    web_rate_limit_per_minute: int = 20  # web keys and the built-in page, per client IP
     threads: int = 0  # inference threads, 0 = all cores
     # Extra API keys as "label:scope:sha256;..." (for hosts where data/ is not writable, e.g. HF secrets)
     api_keys_env: str = field(default="", repr=False)
@@ -42,6 +42,9 @@ class Settings:
     # Set when the proxy does not pass the public host/scheme; otherwise taken from the request.
     public_base_url: str = ""
     ingest_on_startup: bool = True
+    # The built-in page searches through /web/search without a key: same-origin only,
+    # limited per visitor IP (web_rate_limit_per_minute). Disable to require keys everywhere.
+    web_search: bool = True
 
     @property
     def active_embedder(self) -> str:
@@ -119,4 +122,5 @@ class Settings:
             cors_origins=tuple(o.strip() for o in env("VS_CORS_ORIGINS", "").split(",") if o.strip()),
             public_base_url=env("VS_PUBLIC_BASE_URL", "").rstrip("/"),
             ingest_on_startup=_flag(env("VS_INGEST_ON_STARTUP", "1")),
+            web_search=_flag(env("VS_WEB_SEARCH", "1")),
         )
