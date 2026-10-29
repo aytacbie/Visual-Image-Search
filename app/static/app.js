@@ -75,7 +75,7 @@ function renderResults(body) {
   const cards = body.results.map((r) => {
     const pct = Math.max(0, Math.min(100, r.score * 100));
     const img = el("img", { src: r.thumbnail_url, alt: r.filename, loading: "lazy" });
-    // The free tunnel occasionally drops a request; retry each thumbnail once.
+    // Retry each thumbnail once in case of a transient network error.
     img.addEventListener("error", () => setTimeout(() => { img.src = `${r.thumbnail_url}&retry=1`; }, 400), { once: true });
     const link = el("a", { href: r.image_url, target: "_blank", rel: "noopener", title: "Open full image" }, [
       img, el("span", { className: "rank", textContent: `#${r.rank}` }),

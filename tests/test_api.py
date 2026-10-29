@@ -249,6 +249,17 @@ def test_add_image_then_find_it(env):
     assert client.get("/api/v1/images/999999").status_code == 404
 
 
+def test_concurrent_image_requests_all_succeed(env):
+    """Regression: a shared sqlite connection used without a lock returned spurious 404s."""
+    from concurrent.futures import ThreadPoolExecutor
+
+    _, client, _, _ = env
+    ids = list(range(1, 7)) * 15
+    with ThreadPoolExecutor(12) as pool:
+        codes = list(pool.map(lambda i: client.get(f"/api/v1/images/{i}?size=thumb").status_code, ids))
+    assert codes == [200] * len(ids)
+
+
 def test_website_is_served(env):
     _, client, _, _ = env
     resp = client.get("/")

@@ -176,6 +176,12 @@ class VectorStore:
 
     # --- reads -------------------------------------------------------------
 
+    def _fetch(self, sql: str, params=()) -> list[tuple]:
+        # One sqlite3 connection is shared by the server's worker threads; concurrent
+        # cursors on it interfere (a lookup can come back empty), so serialise access.
+        with self._lock:
+            return self._db.execute(sql, params).fetchall()
+
     @property
     def ntotal(self) -> int:
         return int(self._index.ntotal)
@@ -186,11 +192,11 @@ class VectorStore:
         return "hnsw" if isinstance(base, faiss.IndexHNSWFlat) else "flat"
 
     def known_paths(self) -> set[str]:
-        return {r[0] for r in self._db.execute("SELECT path FROM images")}
+        return {r[0] for r in self._fetch("SELECT path FROM images")}
 
     def find_by_sha(self, sha256: str) -> ImageRecord | None:
-        row = self._db.execute(f"{_SELECT} WHERE sha256 = ? ORDER BY id LIMIT 1", (sha256,)).fetchone()
-        return _record(row) if row else None
+        rows = self._fetch(f"{_SELECT} WHERE sha256 = ? ORDER BY id LIMIT 1", (sha256,))
+        return _record(rows[0]) if rows else None
 
     def get(self, image_id: int) -> ImageRecord | None:
         return self.get_many([image_id]).get(image_id)
@@ -199,19 +205,19 @@ class VectorStore:
         if not ids:
             return {}
         marks = ",".join("?" * len(ids))
-        rows = self._db.execute(f"{_SELECT} WHERE id IN ({marks})", ids).fetchall()
+        rows = self._fetch(f"{_SELECT} WHERE id IN ({marks})", ids)
         return {row[0]: _record(row) for row in rows}
 
     def matching_ids(self, flt: SearchFilter) -> np.ndarray:
         where, params = flt.where()
-        rows = self._db.execute(f"SELECT id FROM images WHERE {where}", params).fetchall()
+        rows = self._fetch(f"SELECT id FROM images WHERE {where}", params)
         return np.fromiter((r[0] for r in rows), dtype="int64", count=len(rows))
 
     def categories(self) -> list[dict]:
-        rows = self._db.execute(
+        rows = self._fetch(
             "SELECT category, subcategory, COUNT(*) FROM images WHERE category IS NOT NULL "
             "GROUP BY category, subcategory ORDER BY category, subcategory"
-        ).fetchall()
+        )
         result: dict[str, dict] = {}
         for category, subcategory, count in rows:
             entry = result.setdefault(category, {"name": category, "count": 0, "subcategories": []})
@@ -221,7 +227,7 @@ class VectorStore:
         return list(result.values())
 
     def price_range(self) -> tuple[float | None, float | None]:
-        return self._db.execute("SELECT MIN(price_usd), MAX(price_usd) FROM images").fetchone()
+        return self._fetch("SELECT MIN(price_usd), MAX(price_usd) FROM images")[0]
 
     def all_vectors(self) -> tuple[np.ndarray, np.ndarray]:
         with self._lock:
