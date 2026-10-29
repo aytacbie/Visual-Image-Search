@@ -1,0 +1,11 @@
+.venv/
+.git/
+__pycache__/
+.pytest_cache/
+.env
+data/index/
+data/thumbs/
+data/api_keys.json
+*.tmp
+data/ingest_errors.log
+data/images/uploads/

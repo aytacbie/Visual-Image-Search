@@ -1,0 +1,12 @@
+onnxruntime
+huggingface_hub
+faiss-cpu
+numpy
+pillow
+fastapi
+uvicorn[standard]
+python-multipart
+python-dotenv
+httpx
+pytest
+tqdm

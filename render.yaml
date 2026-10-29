@@ -1,0 +1,12 @@
+# Render Blueprint: Dashboard -> New -> Blueprint -> pick this repo.
+services:
+  - type: web
+    name: visual-search
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/v1/health
+    envVars:
+      # label:scope:sha256 entries joined with ';' (printed by scripts/create_api_key.py).
+      # sync: false = Render asks for the value when the Blueprint is created; it is not stored in git.
+      - key: VS_API_KEYS
+        sync: false

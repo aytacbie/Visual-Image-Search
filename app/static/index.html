@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visual Search</title>
+  <link rel="stylesheet" href="/static/style.css?v=4">
+</head>
+<body>
+  <header class="top">
+    <div class="brand"><span class="logo" aria-hidden="true"></span>Visual Search</div>
+    <div class="top-right">
+      <span id="status" class="pill">connecting…</span>
+      <a class="link" href="/docs" target="_blank" rel="noopener">API docs</a>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel" aria-label="Query">
+      <label class="field-label" for="apiKey">API key</label>
+      <div class="key-row">
+        <input id="apiKey" type="password" placeholder="vs_…" autocomplete="off" spellcheck="false">
+        <button id="toggleKey" type="button" class="ghost">Show</button>
+      </div>
+
+      <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Choose an image">
+        <input id="fileInput" type="file" accept="image/*" hidden>
+        <img id="preview" alt="Query image" hidden>
+        <div id="dropHint" class="drop-hint">
+          <strong>Drop an image here</strong>
+          <span>or click to choose · paste with Ctrl+V</span>
+        </div>
+      </div>
+
+      <div class="controls">
+        <label class="inline">Results
+          <select id="topK">
+            <option>5</option><option selected>10</option><option>20</option><option>50</option>
+          </select>
+        </label>
+        <button id="searchBtn" type="button" class="primary" disabled>Search</button>
+      </div>
+
+      <div id="error" class="error" role="alert" hidden></div>
+
+      <details class="curl">
+        <summary>Call the API with curl</summary>
+        <pre id="curlSnippet"></pre>
+        <button id="copyCurl" type="button" class="ghost">Copy</button>
+      </details>
+    </section>
+
+    <section class="results-panel" aria-label="Results">
+      <div class="results-head">
+        <h2>Similar images</h2>
+        <span id="meta" class="meta"></span>
+      </div>
+      <div id="results" class="grid">
+        <p class="empty">Upload an image to find the most similar ones in the collection.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/app.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.env
+*.log
+*.tmp
+# Generated from data/images + data/products.csv by scripts/ingest.py
+data/index/
+data/thumbs/
+data/images/uploads/
+# Key hashes stay local; deployed keys come from VS_API_KEYS
+data/api_keys.json

@@ -1,0 +1,195 @@
+id,name,brand,category,subcategory,price_usd,image_file
+1,Essence Mascara Lash Princess,Essence,Beauty & Personal Care,Makeup,9.99,images/001_essence-mascara-lash-princess.jpg
+2,Eyeshadow Palette with Mirror,Glamour Beauty,Beauty & Personal Care,Makeup,19.99,images/002_eyeshadow-palette-with-mirror.jpg
+3,Powder Canister,Velvet Touch,Beauty & Personal Care,Makeup,14.99,images/003_powder-canister.jpg
+4,Red Lipstick,Chic Cosmetics,Beauty & Personal Care,Makeup,12.99,images/004_red-lipstick.jpg
+5,Red Nail Polish,Nail Couture,Beauty & Personal Care,Makeup,8.99,images/005_red-nail-polish.jpg
+6,Calvin Klein CK One,Calvin Klein,Beauty & Personal Care,Fragrances,49.99,images/006_calvin-klein-ck-one.jpg
+7,Chanel Coco Noir Eau De,Chanel,Beauty & Personal Care,Fragrances,129.99,images/007_chanel-coco-noir-eau-de.jpg
+8,Dior J'adore,Dior,Beauty & Personal Care,Fragrances,89.99,images/008_dior-j-adore.jpg
+9,Dolce Shine Eau de,Dolce & Gabbana,Beauty & Personal Care,Fragrances,69.99,images/009_dolce-shine-eau-de.jpg
+10,Gucci Bloom Eau de,Gucci,Beauty & Personal Care,Fragrances,79.99,images/010_gucci-bloom-eau-de.jpg
+11,Annibale Colombo Bed,Annibale Colombo,Home & Kitchen,Furniture,1899.99,images/011_annibale-colombo-bed.jpg
+12,Annibale Colombo Sofa,Annibale Colombo,Home & Kitchen,Furniture,2499.99,images/012_annibale-colombo-sofa.jpg
+13,Bedside Table African Cherry,Furniture Co.,Home & Kitchen,Furniture,299.99,images/013_bedside-table-african-cherry.jpg
+14,Knoll Saarinen Executive Conference Chair,Knoll,Home & Kitchen,Furniture,499.99,images/014_knoll-saarinen-executive-conference-chair.jpg
+15,Wooden Bathroom Sink With Mirror,Bath Trends,Home & Kitchen,Furniture,799.99,images/015_wooden-bathroom-sink-with-mirror.jpg
+16,Apple,,Groceries,Groceries,1.99,images/016_apple.jpg
+17,Beef Steak,,Groceries,Groceries,12.99,images/017_beef-steak.jpg
+18,Cat Food,,Groceries,Groceries,8.99,images/018_cat-food.jpg
+19,Chicken Meat,,Groceries,Groceries,9.99,images/019_chicken-meat.jpg
+20,Cooking Oil,,Groceries,Groceries,4.99,images/020_cooking-oil.jpg
+21,Cucumber,,Groceries,Groceries,1.49,images/021_cucumber.jpg
+22,Dog Food,,Groceries,Groceries,10.99,images/022_dog-food.jpg
+23,Eggs,,Groceries,Groceries,2.99,images/023_eggs.jpg
+24,Fish Steak,,Groceries,Groceries,14.99,images/024_fish-steak.jpg
+25,Green Bell Pepper,,Groceries,Groceries,1.29,images/025_green-bell-pepper.jpg
+26,Green Chili Pepper,,Groceries,Groceries,0.99,images/026_green-chili-pepper.jpg
+27,Honey Jar,,Groceries,Groceries,6.99,images/027_honey-jar.jpg
+28,Ice Cream,,Groceries,Groceries,5.49,images/028_ice-cream.jpg
+29,Juice,,Groceries,Groceries,3.99,images/029_juice.jpg
+30,Kiwi,,Groceries,Groceries,2.49,images/030_kiwi.jpg
+31,Lemon,,Groceries,Groceries,0.79,images/031_lemon.jpg
+32,Milk,,Groceries,Groceries,3.49,images/032_milk.jpg
+33,Mulberry,,Groceries,Groceries,4.99,images/033_mulberry.jpg
+34,Nescafe Coffee,,Groceries,Groceries,7.99,images/034_nescafe-coffee.jpg
+35,Potatoes,,Groceries,Groceries,2.29,images/035_potatoes.jpg
+36,Protein Powder,,Groceries,Groceries,19.99,images/036_protein-powder.jpg
+37,Red Onions,,Groceries,Groceries,1.99,images/037_red-onions.jpg
+38,Rice,,Groceries,Groceries,5.99,images/038_rice.jpg
+39,Soft Drinks,,Groceries,Groceries,1.99,images/039_soft-drinks.jpg
+40,Strawberry,,Groceries,Groceries,3.99,images/040_strawberry.jpg
+41,Tissue Paper Box,,Groceries,Groceries,2.49,images/041_tissue-paper-box.jpg
+42,Water,,Groceries,Groceries,0.99,images/042_water.jpg
+43,Decoration Swing,,Home & Kitchen,Home Decor,59.99,images/043_decoration-swing.jpg
+44,Family Tree Photo Frame,,Home & Kitchen,Home Decor,29.99,images/044_family-tree-photo-frame.jpg
+45,House Showpiece Plant,,Home & Kitchen,Home Decor,39.99,images/045_house-showpiece-plant.jpg
+46,Plant Pot,,Home & Kitchen,Home Decor,14.99,images/046_plant-pot.jpg
+47,Table Lamp,,Home & Kitchen,Home Decor,49.99,images/047_table-lamp.jpg
+48,Bamboo Spatula,,Home & Kitchen,Kitchen Accessories,7.99,images/048_bamboo-spatula.jpg
+49,Black Aluminium Cup,,Home & Kitchen,Kitchen Accessories,5.99,images/049_black-aluminium-cup.jpg
+50,Black Whisk,,Home & Kitchen,Kitchen Accessories,9.99,images/050_black-whisk.jpg
+51,Boxed Blender,,Home & Kitchen,Kitchen Accessories,39.99,images/051_boxed-blender.jpg
+52,Carbon Steel Wok,,Home & Kitchen,Kitchen Accessories,29.99,images/052_carbon-steel-wok.jpg
+53,Chopping Board,,Home & Kitchen,Kitchen Accessories,12.99,images/053_chopping-board.jpg
+54,Citrus Squeezer Yellow,,Home & Kitchen,Kitchen Accessories,8.99,images/054_citrus-squeezer-yellow.jpg
+55,Egg Slicer,,Home & Kitchen,Kitchen Accessories,6.99,images/055_egg-slicer.jpg
+56,Electric Stove,,Home & Kitchen,Kitchen Accessories,49.99,images/056_electric-stove.jpg
+57,Fine Mesh Strainer,,Home & Kitchen,Kitchen Accessories,9.99,images/057_fine-mesh-strainer.jpg
+58,Fork,,Home & Kitchen,Kitchen Accessories,3.99,images/058_fork.jpg
+59,Glass,,Home & Kitchen,Kitchen Accessories,4.99,images/059_glass.jpg
+60,Grater Black,,Home & Kitchen,Kitchen Accessories,10.99,images/060_grater-black.jpg
+61,Hand Blender,,Home & Kitchen,Kitchen Accessories,34.99,images/061_hand-blender.jpg
+62,Ice Cube Tray,,Home & Kitchen,Kitchen Accessories,5.99,images/062_ice-cube-tray.jpg
+63,Kitchen Sieve,,Home & Kitchen,Kitchen Accessories,7.99,images/063_kitchen-sieve.jpg
+64,Knife,,Home & Kitchen,Kitchen Accessories,14.99,images/064_knife.jpg
+65,Lunch Box,,Home & Kitchen,Kitchen Accessories,12.99,images/065_lunch-box.jpg
+66,Microwave Oven,,Home & Kitchen,Kitchen Accessories,89.99,images/066_microwave-oven.jpg
+67,Mug Tree Stand,,Home & Kitchen,Kitchen Accessories,15.99,images/067_mug-tree-stand.jpg
+68,Pan,,Home & Kitchen,Kitchen Accessories,24.99,images/068_pan.jpg
+69,Plate,,Home & Kitchen,Kitchen Accessories,3.99,images/069_plate.jpg
+70,Red Tongs,,Home & Kitchen,Kitchen Accessories,6.99,images/070_red-tongs.jpg
+71,Silver Pot With Glass Cap,,Home & Kitchen,Kitchen Accessories,39.99,images/071_silver-pot-with-glass-cap.jpg
+72,Slotted Turner,,Home & Kitchen,Kitchen Accessories,8.99,images/072_slotted-turner.jpg
+73,Spice Rack,,Home & Kitchen,Kitchen Accessories,19.99,images/073_spice-rack.jpg
+74,Spoon,,Home & Kitchen,Kitchen Accessories,4.99,images/074_spoon.jpg
+75,Tray,,Home & Kitchen,Kitchen Accessories,16.99,images/075_tray.jpg
+76,Wooden Rolling Pin,,Home & Kitchen,Kitchen Accessories,11.99,images/076_wooden-rolling-pin.jpg
+77,Yellow Peeler,,Home & Kitchen,Kitchen Accessories,5.99,images/077_yellow-peeler.jpg
+78,Apple MacBook Pro 14 Inch Space Grey,Apple,Electronics,Laptops,1999.99,images/078_apple-macbook-pro-14-inch-space-grey.jpg
+79,Asus Zenbook Pro Dual Screen Laptop,Asus,Electronics,Laptops,1799.99,images/079_asus-zenbook-pro-dual-screen-laptop.jpg
+80,Huawei Matebook X Pro,Huawei,Electronics,Laptops,1399.99,images/080_huawei-matebook-x-pro.jpg
+81,Lenovo Yoga 920,Lenovo,Electronics,Laptops,1099.99,images/081_lenovo-yoga-920.jpg
+82,New DELL XPS 13 9300 Laptop,Dell,Electronics,Laptops,1499.99,images/082_new-dell-xps-13-9300-laptop.jpg
+83,Blue & Black Check Shirt,Fashion Trends,Clothing,Men's Shirts,29.99,images/083_blue-black-check-shirt.jpg
+84,Gigabyte Aorus Men Tshirt,Gigabyte,Clothing,Men's Shirts,24.99,images/084_gigabyte-aorus-men-tshirt.jpg
+85,Man Plaid Shirt,Classic Wear,Clothing,Men's Shirts,34.99,images/085_man-plaid-shirt.jpg
+86,Man Short Sleeve Shirt,Casual Comfort,Clothing,Men's Shirts,19.99,images/086_man-short-sleeve-shirt.jpg
+87,Men Check Shirt,Urban Chic,Clothing,Men's Shirts,27.99,images/087_men-check-shirt.jpg
+88,Nike Air Jordan 1 Red And Black,Nike,Footwear,Men's Shoes,149.99,images/088_nike-air-jordan-1-red-and-black.jpg
+89,Nike Baseball Cleats,Nike,Footwear,Men's Shoes,79.99,images/089_nike-baseball-cleats.jpg
+90,Puma Future Rider Trainers,Puma,Footwear,Men's Shoes,89.99,images/090_puma-future-rider-trainers.jpg
+91,Sports Sneakers Off White & Red,Off White,Footwear,Men's Shoes,119.99,images/091_sports-sneakers-off-white-red.jpg
+92,Sports Sneakers Off White Red,Off White,Footwear,Men's Shoes,109.99,images/092_sports-sneakers-off-white-red.jpg
+93,Brown Leather Belt Watch,Fashion Timepieces,Accessories,Men's Watches,89.99,images/093_brown-leather-belt-watch.jpg
+94,Longines Master Collection,Longines,Accessories,Men's Watches,1499.99,images/094_longines-master-collection.jpg
+95,Rolex Cellini Date Black Dial,Rolex,Accessories,Men's Watches,8999.99,images/095_rolex-cellini-date-black-dial.jpg
+96,Rolex Cellini Moonphase,Rolex,Accessories,Men's Watches,12999.99,images/096_rolex-cellini-moonphase.jpg
+97,Rolex Datejust,Rolex,Accessories,Men's Watches,10999.99,images/097_rolex-datejust.jpg
+98,Rolex Submariner Watch,Rolex,Accessories,Men's Watches,13999.99,images/098_rolex-submariner-watch.jpg
+99,Amazon Echo Plus,Amazon,Electronics,Mobile Accessories,99.99,images/099_amazon-echo-plus.jpg
+100,Apple Airpods,Apple,Electronics,Mobile Accessories,129.99,images/100_apple-airpods.jpg
+101,Apple AirPods Max Silver,Apple,Electronics,Mobile Accessories,549.99,images/101_apple-airpods-max-silver.jpg
+102,Apple Airpower Wireless Charger,Apple,Electronics,Mobile Accessories,79.99,images/102_apple-airpower-wireless-charger.jpg
+103,Apple HomePod Mini Cosmic Grey,Apple,Electronics,Mobile Accessories,99.99,images/103_apple-homepod-mini-cosmic-grey.jpg
+104,Apple iPhone Charger,Apple,Electronics,Mobile Accessories,19.99,images/104_apple-iphone-charger.jpg
+105,Apple MagSafe Battery Pack,Apple,Electronics,Mobile Accessories,99.99,images/105_apple-magsafe-battery-pack.jpg
+106,Apple Watch Series 4 Gold,Apple,Electronics,Mobile Accessories,349.99,images/106_apple-watch-series-4-gold.jpg
+107,Beats Flex Wireless Earphones,Beats,Electronics,Mobile Accessories,49.99,images/107_beats-flex-wireless-earphones.jpg
+108,iPhone 12 Silicone Case with MagSafe Plum,Apple,Electronics,Mobile Accessories,29.99,images/108_iphone-12-silicone-case-with-magsafe-plum.jpg
+109,Monopod,TechGear,Electronics,Mobile Accessories,19.99,images/109_monopod.jpg
+110,Selfie Lamp with iPhone,GadgetMaster,Electronics,Mobile Accessories,14.99,images/110_selfie-lamp-with-iphone.jpg
+111,Selfie Stick Monopod,SnapTech,Electronics,Mobile Accessories,12.99,images/111_selfie-stick-monopod.jpg
+112,TV Studio Camera Pedestal,ProVision,Electronics,Mobile Accessories,499.99,images/112_tv-studio-camera-pedestal.jpg
+113,Generic Motorcycle,Generic Motors,Vehicles,Motorcycles,3999.99,images/113_generic-motorcycle.jpg
+114,Kawasaki Z800,Kawasaki,Vehicles,Motorcycles,8999.99,images/114_kawasaki-z800.jpg
+115,MotoGP CI.H1,MotoGP,Vehicles,Motorcycles,14999.99,images/115_motogp-ci-h1.jpg
+116,Scooter Motorcycle,ScootMaster,Vehicles,Motorcycles,2999.99,images/116_scooter-motorcycle.jpg
+117,Sportbike Motorcycle,SpeedMaster,Vehicles,Motorcycles,7499.99,images/117_sportbike-motorcycle.jpg
+118,Attitude Super Leaves Hand Soap,Attitude,Beauty & Personal Care,Skin Care,8.99,images/118_attitude-super-leaves-hand-soap.jpg
+119,Olay Ultra Moisture Shea Butter Body Wash,Olay,Beauty & Personal Care,Skin Care,12.99,images/119_olay-ultra-moisture-shea-butter-body-wash.jpg
+120,Vaseline Men Body and Face Lotion,Vaseline,Beauty & Personal Care,Skin Care,9.99,images/120_vaseline-men-body-and-face-lotion.jpg
+121,iPhone 5s,Apple,Electronics,Smartphones,199.99,images/121_iphone-5s.jpg
+122,iPhone 6,Apple,Electronics,Smartphones,299.99,images/122_iphone-6.jpg
+123,iPhone 13 Pro,Apple,Electronics,Smartphones,1099.99,images/123_iphone-13-pro.jpg
+124,iPhone X,Apple,Electronics,Smartphones,899.99,images/124_iphone-x.jpg
+125,Oppo A57,Oppo,Electronics,Smartphones,249.99,images/125_oppo-a57.jpg
+126,Oppo F19 Pro Plus,Oppo,Electronics,Smartphones,399.99,images/126_oppo-f19-pro-plus.jpg
+127,Oppo K1,Oppo,Electronics,Smartphones,299.99,images/127_oppo-k1.jpg
+128,Realme C35,Realme,Electronics,Smartphones,149.99,images/128_realme-c35.jpg
+129,Realme X,Realme,Electronics,Smartphones,299.99,images/129_realme-x.jpg
+130,Realme XT,Realme,Electronics,Smartphones,349.99,images/130_realme-xt.jpg
+131,Samsung Galaxy S7,Samsung,Electronics,Smartphones,299.99,images/131_samsung-galaxy-s7.jpg
+132,Samsung Galaxy S8,Samsung,Electronics,Smartphones,499.99,images/132_samsung-galaxy-s8.jpg
+133,Samsung Galaxy S10,Samsung,Electronics,Smartphones,699.99,images/133_samsung-galaxy-s10.jpg
+134,Vivo S1,Vivo,Electronics,Smartphones,249.99,images/134_vivo-s1.jpg
+135,Vivo V9,Vivo,Electronics,Smartphones,299.99,images/135_vivo-v9.jpg
+136,Vivo X21,Vivo,Electronics,Smartphones,499.99,images/136_vivo-x21.jpg
+137,American Football,,Sports,Sports Accessories,19.99,images/137_american-football.jpg
+138,Baseball Ball,,Sports,Sports Accessories,8.99,images/138_baseball-ball.jpg
+139,Baseball Glove,,Sports,Sports Accessories,24.99,images/139_baseball-glove.jpg
+140,Basketball,,Sports,Sports Accessories,14.99,images/140_basketball.jpg
+141,Basketball Rim,,Sports,Sports Accessories,39.99,images/141_basketball-rim.jpg
+142,Cricket Ball,,Sports,Sports Accessories,12.99,images/142_cricket-ball.jpg
+143,Cricket Bat,,Sports,Sports Accessories,29.99,images/143_cricket-bat.jpg
+144,Cricket Helmet,,Sports,Sports Accessories,44.99,images/144_cricket-helmet.jpg
+145,Cricket Wicket,,Sports,Sports Accessories,29.99,images/145_cricket-wicket.jpg
+146,Feather Shuttlecock,,Sports,Sports Accessories,5.99,images/146_feather-shuttlecock.jpg
+147,Football,,Sports,Sports Accessories,17.99,images/147_football.jpg
+148,Golf Ball,,Sports,Sports Accessories,9.99,images/148_golf-ball.jpg
+149,Iron Golf,,Sports,Sports Accessories,49.99,images/149_iron-golf.jpg
+150,Metal Baseball Bat,,Sports,Sports Accessories,29.99,images/150_metal-baseball-bat.jpg
+151,Tennis Ball,,Sports,Sports Accessories,6.99,images/151_tennis-ball.jpg
+152,Tennis Racket,,Sports,Sports Accessories,49.99,images/152_tennis-racket.jpg
+153,Volleyball,,Sports,Sports Accessories,11.99,images/153_volleyball.jpg
+154,Black Sun Glasses,Fashion Shades,Accessories,Sunglasses,29.99,images/154_black-sun-glasses.jpg
+155,Classic Sun Glasses,Fashion Shades,Accessories,Sunglasses,24.99,images/155_classic-sun-glasses.jpg
+156,Green and Black Glasses,Fashion Shades,Accessories,Sunglasses,34.99,images/156_green-and-black-glasses.jpg
+157,Party Glasses,Fashion Fun,Accessories,Sunglasses,19.99,images/157_party-glasses.jpg
+158,Sunglasses,Fashion Shades,Accessories,Sunglasses,22.99,images/158_sunglasses.jpg
+159,iPad Mini 2021 Starlight,Apple,Electronics,Tablets,499.99,images/159_ipad-mini-2021-starlight.jpg
+160,Samsung Galaxy Tab S8 Plus Grey,Samsung,Electronics,Tablets,599.99,images/160_samsung-galaxy-tab-s8-plus-grey.jpg
+161,Samsung Galaxy Tab White,Samsung,Electronics,Tablets,349.99,images/161_samsung-galaxy-tab-white.jpg
+162,Blue Frock,,Clothing,Women's Tops,29.99,images/162_blue-frock.jpg
+163,Girl Summer Dress,,Clothing,Women's Tops,19.99,images/163_girl-summer-dress.jpg
+164,Gray Dress,,Clothing,Women's Tops,34.99,images/164_gray-dress.jpg
+165,Short Frock,,Clothing,Women's Tops,24.99,images/165_short-frock.jpg
+166,Tartan Dress,,Clothing,Women's Tops,39.99,images/166_tartan-dress.jpg
+167,300 Touring,Chrysler,Vehicles,Cars,28999.99,images/167_300-touring.jpg
+168,Charger SXT RWD,Dodge,Vehicles,Cars,32999.99,images/168_charger-sxt-rwd.jpg
+169,Dodge Hornet GT Plus,Dodge,Vehicles,Cars,24999.99,images/169_dodge-hornet-gt-plus.jpg
+170,Durango SXT RWD,Dodge,Vehicles,Cars,36999.99,images/170_durango-sxt-rwd.jpg
+171,Pacifica Touring,Chrysler,Vehicles,Cars,31999.99,images/171_pacifica-touring.jpg
+172,Blue Women's Handbag,Fashionista,Accessories,Women's Bags,49.99,images/172_blue-women-s-handbag.jpg
+173,Heshe Women's Leather Bag,Heshe,Accessories,Women's Bags,129.99,images/173_heshe-women-s-leather-bag.jpg
+174,Prada Women Bag,Prada,Accessories,Women's Bags,599.99,images/174_prada-women-bag.jpg
+175,White Faux Leather Backpack,Urban Chic,Accessories,Women's Bags,39.99,images/175_white-faux-leather-backpack.jpg
+176,Women Handbag Black,Elegance Collection,Accessories,Women's Bags,59.99,images/176_women-handbag-black.jpg
+177,Black Women's Gown,,Clothing,Women's Dresses,129.99,images/177_black-women-s-gown.jpg
+178,Corset Leather With Skirt,,Clothing,Women's Dresses,89.99,images/178_corset-leather-with-skirt.jpg
+179,Corset With Black Skirt,,Clothing,Women's Dresses,79.99,images/179_corset-with-black-skirt.jpg
+180,Dress Pea,,Clothing,Women's Dresses,49.99,images/180_dress-pea.jpg
+181,Marni Red & Black Suit,,Clothing,Women's Dresses,179.99,images/181_marni-red-black-suit.jpg
+182,Green Crystal Earring,,Accessories,Jewelry,29.99,images/182_green-crystal-earring.jpg
+183,Green Oval Earring,,Accessories,Jewelry,24.99,images/183_green-oval-earring.jpg
+184,Tropical Earring,,Accessories,Jewelry,19.99,images/184_tropical-earring.jpg
+185,Black & Brown Slipper,Comfort Trends,Footwear,Women's Shoes,19.99,images/185_black-brown-slipper.jpg
+186,Calvin Klein Heel Shoes,Calvin Klein,Footwear,Women's Shoes,79.99,images/186_calvin-klein-heel-shoes.jpg
+187,Golden Shoes Woman,Fashion Diva,Footwear,Women's Shoes,49.99,images/187_golden-shoes-woman.jpg
+188,Pampi Shoes,Pampi,Footwear,Women's Shoes,29.99,images/188_pampi-shoes.jpg
+189,Red Shoes,Fashion Express,Footwear,Women's Shoes,34.99,images/189_red-shoes.jpg
+190,IWC Ingenieur Automatic Steel,IWC,Accessories,Women's Watches,4999.99,images/190_iwc-ingenieur-automatic-steel.jpg
+191,Rolex Cellini Moonphase,Rolex,Accessories,Women's Watches,15999.99,images/191_rolex-cellini-moonphase.jpg
+192,Rolex Datejust Women,Rolex,Accessories,Women's Watches,10999.99,images/192_rolex-datejust-women.jpg
+193,Watch Gold for Women,Fashion Gold,Accessories,Women's Watches,799.99,images/193_watch-gold-for-women.jpg
+194,Women's Wrist Watch,Fashion Co.,Accessories,Women's Watches,129.99,images/194_women-s-wrist-watch.jpg
